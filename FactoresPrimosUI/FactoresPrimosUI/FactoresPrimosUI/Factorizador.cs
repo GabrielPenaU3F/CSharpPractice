@@ -5,50 +5,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FactoresPrimos
+namespace FactoresPrimosUI
 {
 
     public class Factorizador
     {
-        public ArrayList Factorizar(int numero)
+        public List<int> Factorizar(int numero)
         {
-            ArrayList factoresPrimos = new ArrayList();
+            List<int> factoresPrimos = new List<int>();
 
             if (this.EsPrimo(numero)) factoresPrimos.Add(numero);
             else
             {
-                for (int i = numero - 1; i > 1; i--)
+                int mayorDivisorEntero = this.BuscarMayorDivisor(numero);
+
+                int cociente = numero / mayorDivisorEntero;
+
+                if (this.EsPrimo(cociente)) factoresPrimos.Add(cociente);
+                else
                 {
-                    if (EsDivisiblePor(numero, i))
-                    {
-
-                        int cociente = numero / i;
-
-                        if (!factoresPrimos.Contains(i))
-                        {
-                            if (EsPrimo(i)) factoresPrimos.Add(i);
-                            else factoresPrimos = agregarFactores(factoresPrimos, this.Factorizar(i));
-                        }
-
-                        if (!factoresPrimos.Contains(cociente))
-                        {
-                            if (EsPrimo(cociente)) factoresPrimos.Add(cociente);
-                            else factoresPrimos = agregarFactores(factoresPrimos, this.Factorizar(cociente));
-                        }
-
-                    }
+                    List<int> factoresPrimosDelCociente = this.Factorizar(cociente);
+                    this.AgregarFactores(factoresPrimos, factoresPrimosDelCociente);
                 }
+
+                if (this.EsPrimo(mayorDivisorEntero)) factoresPrimos.Add(mayorDivisorEntero);
+                else
+                {
+                    List<int> factoresPrimosDelDivisor = this.Factorizar(mayorDivisorEntero);
+                    this.AgregarFactores(factoresPrimos, factoresPrimosDelDivisor);
+                }
+
             }
             return factoresPrimos;
 
         }
 
-        private ArrayList agregarFactores(ArrayList listaFactores, ArrayList nuevosFactores)
+        private int BuscarMayorDivisor(int numero)
         {
-            foreach(int factor in nuevosFactores)
+            for (int i=numero-1; i>1; i--)
             {
-                if (!listaFactores.Contains(factor)) listaFactores.Add(factor);
+                if (EsDivisiblePor(numero, i)) return i;
             }
+            return 1;
+        }
+
+        private List<int> AgregarFactores(List<int> listaFactores, List<int> nuevosFactores)
+        {
+            foreach(int factor in nuevosFactores) listaFactores.Add(factor);
             return listaFactores;
         }
 
@@ -66,7 +69,7 @@ namespace FactoresPrimos
                 if (numero % i == 0) cantidadDivisores++;
             }
 
-            if (cantidadDivisores <= 2) return true;
+            if (cantidadDivisores < 2) return true;
             else return false;
         }
     }
