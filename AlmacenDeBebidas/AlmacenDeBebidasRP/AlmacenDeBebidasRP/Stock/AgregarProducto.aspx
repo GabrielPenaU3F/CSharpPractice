@@ -8,44 +8,42 @@
     <title></title>
     <style type="text/css">
         #form1 {
-            height: 239px;
+            height: 301px;
+            width: 457px;
         }
     </style>
 </head>
-<body style="height: 241px; width: 464px;">
+<body style="height: 301px; width: 458px;">
     <form id="form1" runat="server">
         <div dir="ltr">
             <asp:Label ID="Label2" runat="server" Text="Ingrese los datos del producto"></asp:Label>
         </div>
         <br />
-        <asp:Label ID="Label4" runat="server" Text="ID del producto"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="IDTextBox" runat="server"></asp:TextBox>
+        ID del producto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="idTextBox" runat="server"></asp:TextBox>
         <br />
-        <asp:Label ID="Label3" runat="server" Text="Nombre del producto"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="NombreTextBox" runat="server"></asp:TextBox>
+        Nombre del producto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:TextBox ID="nombreTextBox" runat="server"></asp:TextBox>
         <br />
-        <asp:Label ID="Label5" runat="server" Text=" Categoría"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="CategoriaDDList" runat="server">
+        Categoría&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="categoriaDDList" runat="server">
         </asp:DropDownList>
         <br />
-        <asp:Label ID="Label6" runat="server" Text="Origen"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="OrigenDDList" runat="server" OnSelectedIndexChanged="OrigenDDList_SelectedIndexChanged" AutoPostBack="True">
+        Origen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:DropDownList ID="origenDDList" runat="server" OnSelectedIndexChanged="origenDDList_SelectedIndexChanged" AutoPostBack="True">
         </asp:DropDownList>
         <br />
         <asp:Label ID="LabelPrecio" runat="server" Text="Precio (ARS)"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="PrecioTextBox" runat="server"></asp:TextBox>
+        <asp:TextBox ID="precioTextBox" runat="server"></asp:TextBox>
+        <br />
+        Cantidad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="cantidadTextBox" runat="server"></asp:TextBox>
         <br />
         <br />
         <br />
-        &nbsp;<asp:Button ID="BtnVolver" runat="server" OnClick="BtnVolver_Click" Text="Volver a Stock" />
+        &nbsp;<asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver a Stock" />
         &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="BotonAceptar" runat="server" OnClick="BotonAceptar_Click" Text="Aceptar" />
-        &nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="LblResultado" runat="server"></asp:Label>
+        <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" />
+        &nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblResultado" runat="server"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </form>
 </body>

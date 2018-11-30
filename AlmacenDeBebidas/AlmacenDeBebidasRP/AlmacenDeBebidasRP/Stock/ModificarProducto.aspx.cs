@@ -17,99 +17,104 @@ namespace AlmacenDeBebidasRP.Stock
         {
             if (!IsPostBack)
             {
-                CategoriasDDList.DataSource = BusinessDataProvider.ProvideListaDeCategorias();
-                OrigenesDDList.DataSource = BusinessDataProvider.ProvideListaDeOrigenes();
+                categoriasDDList.DataSource = BusinessDataProvider.ProvideListaDeCategorias();
+                origenesDDList.DataSource = BusinessDataProvider.ProvideListaDeOrigenes();
 
-                CategoriasDDList.DataBind();
-                OrigenesDDList.DataBind();
+                categoriasDDList.DataBind();
+                origenesDDList.DataBind();
 
-                CategoriasDDList.Enabled = false;
-                OrigenesDDList.Enabled = false;
+                categoriasDDList.Enabled = false;
+                origenesDDList.Enabled = false;
 
-                CategoriaCheckBox.Checked = false;
-                OrigenCheckBox.Checked = false;
+                categoriaCheckBox.Checked = false;
+                origenCheckBox.Checked = false;
 
                 ViewState["Verificado"] = false;
-                BtnModificar.Enabled = false;
+                btnModificar.Enabled = false;
             }
             else
             {
-                if (CategoriaCheckBox.Checked) CategoriasDDList.Enabled = true;
-                else CategoriasDDList.Enabled = false;
-                if (OrigenCheckBox.Checked)
+                if (categoriaCheckBox.Checked) categoriasDDList.Enabled = true;
+                else categoriasDDList.Enabled = false;
+                if (origenCheckBox.Checked)
                 {
-                    OrigenesDDList.Enabled = true;
-                    if (OrigenesDDList.SelectedValue == "NACIONAL") LblNuevoPrecio.Text = "Nuevo precio (ARS)";
-                    else LblNuevoPrecio.Text = "Nuevo precio (USS)";
+                    origenesDDList.Enabled = true;
+                    if (origenesDDList.SelectedValue == "NACIONAL") lblNuevoPrecio.Text = "Nuevo precio (ARS)";
+                    else lblNuevoPrecio.Text = "Nuevo precio (USS)";
                 }
-                else OrigenesDDList.Enabled = false;
+                else origenesDDList.Enabled = false;
 
             }
         }
 
-        protected void BtnModificar_Click(object sender, EventArgs e)
+        protected void btnModificar_Click(object sender, EventArgs e)
         {
             if (this.ValidarCampos())
             {
                 Producto productoActual = (Producto)ViewState["ProductoBuscado"];
 
-                int idProducto = int.Parse(IDTextBox.Text);
+                int idProducto = int.Parse(idTextBox.Text);
                 string nombre, categoria, origen;
                 double precio = 0;
+                int cantidad = 0;
 
-                if (NuevoNombreTextBox.Text != "") nombre = NuevoNombreTextBox.Text;
+                if (nuevoNombreTextBox.Text != "") nombre = nuevoNombreTextBox.Text;
                 else nombre = productoActual.GetNombreProducto();
 
-                if (CategoriaCheckBox.Checked) categoria = CategoriasDDList.SelectedValue;
+                if (categoriaCheckBox.Checked) categoria = categoriasDDList.SelectedValue;
                 else categoria = productoActual.GetCategoria();
 
-                if (OrigenCheckBox.Checked) origen = OrigenesDDList.SelectedValue;
+                if (origenCheckBox.Checked) origen = origenesDDList.SelectedValue;
                 else origen = productoActual.GetOrigen();
 
-                if (NuevoPrecioTextBox.Text != "") precio = double.Parse(NuevoPrecioTextBox.Text);
+                if (nuevoPrecioTextBox.Text != "") precio = double.Parse(nuevoPrecioTextBox.Text);
                 else if (productoActual.GetOrigen() == "NACIONAL") precio = productoActual.GetPrecioArs();
                 else if (productoActual.GetOrigen() == "IMPORTADO") precio = (double)productoActual.GetPrecioUss();
 
-                Producto nuevoProducto = new Producto(idProducto, nombre, categoria, origen, precio);
+                if (nuevaCantidadTextBox.Text != "") cantidad = int.Parse(nuevaCantidadTextBox.Text);
+                else cantidad = productoActual.GetCantidad();
+
+                Producto nuevoProducto = new Producto(idProducto, nombre, categoria, origen, precio, cantidad);
 
                 ProductoDAO dao = new ProductoDAO();
-                if (dao.ModificarProducto(idProducto, nuevoProducto)) LblResultado.Text = "Producto modificado con éxito";
+                if (dao.ModificarProducto(idProducto, nuevoProducto)) lblResultado.Text = "Producto modificado con éxito";
 
             }
-            else LblResultado.Text = "Campo inválido o faltante";
+            else lblResultado.Text = "Campo inválido o faltante";
             
         }
 
         private bool ValidarCampos()
         {
-            return ((NuevoNombreTextBox.Text != "") || (NuevoPrecioTextBox.Text != "")) && IDTextBox.Text != "";
+            return ((nuevoNombreTextBox.Text != "") || (nuevoPrecioTextBox.Text != "") || (nuevaCantidadTextBox.Text != "")) && idTextBox.Text != "";
         }
 
-        protected void BtnVolver_Click(object sender, EventArgs e)
+        protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Stock/StockMainPage.aspx");
         }
 
-        protected void BtnVerificar_Click(object sender, EventArgs e)
+        protected void btnVerificar_Click(object sender, EventArgs e)
         {
-            if (IDTextBox.Text != "") {
+            if (idTextBox.Text != "") {
                 ProductoDAO dao = new ProductoDAO();
-                List<Producto> productos = dao.BuscarProductos("ID_PRODUCTO=" + IDTextBox.Text);
+                List<Producto> productos = dao.BuscarProductos("ID_PRODUCTO=" + idTextBox.Text);
                 if (productos.Count == 1)
                 {
                     ViewState["Verificado"] = true;
-                    BtnModificar.Enabled = true;
+                    btnModificar.Enabled = true;
                     ViewState["ProductoBuscado"] = productos[0];
-                    if (productos[0].GetOrigen() == "NACIONAL") LblNuevoPrecio.Text = "Nuevo precio (ARS)";
-                    else LblNuevoPrecio.Text = "Nuevo precio (USS)";
-                    LblResultado.Text = "";
+                    if (productos[0].GetOrigen() == "NACIONAL") lblNuevoPrecio.Text = "Nuevo precio (ARS)";
+                    else lblNuevoPrecio.Text = "Nuevo precio (USS)";
+                    lblResultado.Text = "";
                 }
                 else
                 {
-                    LblResultado.Text = "El producto buscado es inexistente";
+                    lblResultado.Text = "El producto buscado es inexistente";
                     ViewState["Verificado"] = false;
                 }
             }
         }
+
     }
 }

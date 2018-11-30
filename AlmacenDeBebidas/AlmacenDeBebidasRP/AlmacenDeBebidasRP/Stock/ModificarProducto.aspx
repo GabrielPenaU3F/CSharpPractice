@@ -9,42 +9,40 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="height: 161px; width: 712px">
-            <asp:Label ID="Label1" runat="server" Text="ID del producto"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="IDTextBox" runat="server" Width="60px"></asp:TextBox>
+        <div style="height: 241px; width: 797px">
+            ID del producto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="idTextBox" runat="server" Width="60px"></asp:TextBox>
             &nbsp;&nbsp;
-            <asp:Button ID="BtnVerificar" runat="server" OnClick="BtnVerificar_Click" Text="Verificar" />
+            <asp:Button ID="btnVerificar" runat="server" OnClick="btnVerificar_Click" Text="Verificar" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
             <br />
-            <asp:Label ID="Label2" runat="server" Text="Nuevo nombre"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="NuevoNombreTextBox" runat="server"></asp:TextBox>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="BtnModificar" runat="server" OnClick="BtnModificar_Click" Text="Modificar producto" />
+            Nuevo nombre&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="nuevoNombreTextBox" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnModificar" runat="server" OnClick="btnModificar_Click" Text="Modificar producto" />
             <br />
-            <asp:Label ID="Label3" runat="server" Text="Nueva categoría"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:CheckBox ID="CategoriaCheckBox" runat="server" AutoPostBack="True" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="CategoriasDDList" runat="server">
+            Nueva categoría&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:CheckBox ID="categoriaCheckBox" runat="server" AutoPostBack="True" />
+&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="categoriasDDList" runat="server">
             </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="LblResultado" runat="server"></asp:Label>
+            &nbsp;&nbsp;&nbsp;
+            <asp:Label ID="lblResultado" runat="server"></asp:Label>
             <br />
-            <asp:Label ID="Label4" runat="server" Text="Nuevo origen"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:CheckBox ID="OrigenCheckBox" runat="server" AutoPostBack="True" />
+            Nuevo origen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:CheckBox ID="origenCheckBox" runat="server" AutoPostBack="True" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="OrigenesDDList" runat="server">
+            <asp:DropDownList ID="origenesDDList" runat="server">
             </asp:DropDownList>
             <br />
-            <asp:Label ID="LblNuevoPrecio" runat="server" Text="Nuevo precio"></asp:Label>
+            <asp:Label ID="lblNuevoPrecio" runat="server" Text="Nuevo precio"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="NuevoPrecioTextBox" runat="server"></asp:TextBox>
+            <asp:TextBox ID="nuevoPrecioTextBox" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="BtnVolver" runat="server" OnClick="BtnVolver_Click" Text="Volver a Stock" />
+            <br />
+            Nueva cantidad&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="nuevaCantidadTextBox" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+            <asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver a Stock" />
         </div>
     </form>
 </body>

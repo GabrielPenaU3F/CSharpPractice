@@ -22,147 +22,120 @@ namespace AlmacenDeBebidasRP.Stock {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control Label1.
+        /// Control idTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox idTextBox;
         
         /// <summary>
-        /// Control IDTextBox.
+        /// Control btnVerificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox IDTextBox;
+        protected global::System.Web.UI.WebControls.Button btnVerificar;
         
         /// <summary>
-        /// Control BtnVerificar.
+        /// Control nuevoNombreTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnVerificar;
+        protected global::System.Web.UI.WebControls.TextBox nuevoNombreTextBox;
         
         /// <summary>
-        /// Control Label2.
+        /// Control btnModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Button btnModificar;
         
         /// <summary>
-        /// Control NuevoNombreTextBox.
+        /// Control categoriaCheckBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NuevoNombreTextBox;
+        protected global::System.Web.UI.WebControls.CheckBox categoriaCheckBox;
         
         /// <summary>
-        /// Control BtnModificar.
+        /// Control categoriasDDList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnModificar;
+        protected global::System.Web.UI.WebControls.DropDownList categoriasDDList;
         
         /// <summary>
-        /// Control Label3.
+        /// Control lblResultado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblResultado;
         
         /// <summary>
-        /// Control CategoriaCheckBox.
+        /// Control origenCheckBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CategoriaCheckBox;
+        protected global::System.Web.UI.WebControls.CheckBox origenCheckBox;
         
         /// <summary>
-        /// Control CategoriasDDList.
+        /// Control origenesDDList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CategoriasDDList;
+        protected global::System.Web.UI.WebControls.DropDownList origenesDDList;
         
         /// <summary>
-        /// Control LblResultado.
+        /// Control lblNuevoPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblResultado;
+        protected global::System.Web.UI.WebControls.Label lblNuevoPrecio;
         
         /// <summary>
-        /// Control Label4.
+        /// Control nuevoPrecioTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.TextBox nuevoPrecioTextBox;
         
         /// <summary>
-        /// Control OrigenCheckBox.
+        /// Control nuevaCantidadTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox OrigenCheckBox;
+        protected global::System.Web.UI.WebControls.TextBox nuevaCantidadTextBox;
         
         /// <summary>
-        /// Control OrigenesDDList.
+        /// Control btnVolver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList OrigenesDDList;
-        
-        /// <summary>
-        /// Control LblNuevoPrecio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblNuevoPrecio;
-        
-        /// <summary>
-        /// Control NuevoPrecioTextBox.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NuevoPrecioTextBox;
-        
-        /// <summary>
-        /// Control BtnVolver.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnVolver;
+        protected global::System.Web.UI.WebControls.Button btnVolver;
     }
 }

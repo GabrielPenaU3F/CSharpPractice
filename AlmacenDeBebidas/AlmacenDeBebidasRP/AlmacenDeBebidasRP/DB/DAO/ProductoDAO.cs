@@ -22,7 +22,7 @@ namespace AlmacenDeBebidasRP.DB.DAO
             if (productosExistentes.Count() > 0) return false;
             else
             {
-                String consulta = "INSERT INTO Stock(ID_PRODUCTO, NOMBRE, CATEGORIA, ORIGEN, PRECIO_USS, PRECIO_ARS) VALUES(";
+                String consulta = "INSERT INTO Stock(ID_PRODUCTO, NOMBRE, CATEGORIA, ORIGEN, PRECIO_USS, PRECIO_ARS, CANTIDAD) VALUES(";
                 consulta += producto.GetIDProducto();
                 consulta += ",";
                 consulta += "'" + producto.GetNombreProducto() + "'";
@@ -41,6 +41,8 @@ namespace AlmacenDeBebidasRP.DB.DAO
                 }
                 consulta += ",";
                 consulta += producto.GetPrecioArs();
+                consulta += ",";
+                consulta += producto.GetCantidad();
                 consulta += ")";
 
                 this.EjecutarConsultaDeEscritura(consulta);
@@ -96,18 +98,19 @@ namespace AlmacenDeBebidasRP.DB.DAO
             consulta += "'" + nuevoProducto.GetCategoria() + "'";
             consulta += ", ORIGEN = ";
             consulta += "'" + nuevoProducto.GetOrigen() + "'";
-            consulta += ", ";
             if (nuevoProducto.GetPrecioUss() == null)
             {
-                consulta += "PRECIO_USS = NULL";
+                consulta += ", PRECIO_USS = NULL";
             }
             else
             {
-                consulta += "PRECIO_USS = ";
+                consulta += ", PRECIO_USS = ";
                 consulta += nuevoProducto.GetPrecioUss();
             }
             consulta += ", PRECIO_ARS = ";
             consulta += nuevoProducto.GetPrecioArs();
+            consulta += ", CANTIDAD = ";
+            consulta += nuevoProducto.GetCantidad();
             consulta += (" WHERE ID_PRODUCTO = " + idProducto);
 
             this.EjecutarConsultaDeEscritura(consulta);
@@ -121,7 +124,7 @@ namespace AlmacenDeBebidasRP.DB.DAO
             {
                 while (sqlDataReader.Read())
                 {
-                    int id = (int)sqlDataReader["ID_PRODUCTO"];
+                    int id = int.Parse(sqlDataReader["ID_PRODUCTO"].ToString());
                     String nombre = sqlDataReader["NOMBRE"].ToString();
                     String categoria = sqlDataReader["CATEGORIA"].ToString();
                     String origen = sqlDataReader["ORIGEN"].ToString();
@@ -134,7 +137,8 @@ namespace AlmacenDeBebidasRP.DB.DAO
                     {
                         precio = Double.Parse(sqlDataReader["PRECIO_USS"].ToString());
                     }
-                    productos.Add(new Producto(id, nombre, categoria, origen, precio));
+                    int cantidad = int.Parse(sqlDataReader["CANTIDAD"].ToString());
+                    productos.Add(new Producto(id, nombre, categoria, origen, precio, cantidad));
                 }
             }
             return productos;

@@ -15,14 +15,14 @@ namespace AlmacenDeBebidasRP.Stock
 
         }
 
-        protected void BtnEliminar_Click(object sender, EventArgs e)
+        protected void btnEliminar_Click(object sender, EventArgs e)
         {
             ProductoDAO dao = new ProductoDAO();
-            if (dao.EliminarProducto(int.Parse(IDTextBox.Text))) LblResultado.Text = "Eliminado con exito";
-            else LblResultado.Text = "El producto solicitado no existe";
+            if (dao.EliminarProducto(int.Parse(idTextBox.Text))) lblResultado.Text = "Eliminado con exito";
+            else lblResultado.Text = "El producto solicitado no existe";
         }
 
-        protected void BtnVolver_Click(object sender, EventArgs e)
+        protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Stock/StockMainPage.aspx");
         }

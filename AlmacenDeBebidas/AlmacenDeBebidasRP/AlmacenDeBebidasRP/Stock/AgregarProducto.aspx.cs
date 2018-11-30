@@ -24,48 +24,49 @@ namespace AlmacenDeBebidasRP.Stock
             }
         }
 
-        protected void OrigenDDList_SelectedIndexChanged(object sender, EventArgs e)
+        protected void origenDDList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string value = OrigenDDList.SelectedItem.Value;
+            string value = origenDDList.SelectedItem.Value;
             if (value.Equals("NACIONAL")) LabelPrecio.Text = "Precio (ARS)";
             else LabelPrecio.Text = "Precio (US$)";
         }
 
-        protected void BotonAceptar_Click(object sender, EventArgs e)
+        protected void btnAceptar_Click(object sender, EventArgs e)
         {
             if (this.ValidarCampos() == false)
             {
-                LblResultado.Text = "Campo invalido o faltante";
+                lblResultado.Text = "Campo invalido o faltante";
             }
             else
             {
-                Producto producto = new Producto(Int32.Parse(IDTextBox.Text), NombreTextBox.Text, CategoriaDDList.SelectedValue, OrigenDDList.SelectedValue, Double.Parse(PrecioTextBox.Text));
+                Producto producto = new Producto(Int32.Parse(idTextBox.Text), nombreTextBox.Text, categoriaDDList.SelectedValue, origenDDList.SelectedValue, Double.Parse(precioTextBox.Text), Int32.Parse(cantidadTextBox.Text));
                 this.dao = new ProductoDAO();
-                if (dao.AgregarProducto(producto)) LblResultado.Text = "Producto agregado con éxito";
-                else LblResultado.Text = "El ID ingresado ya está en uso";
+                if (dao.AgregarProducto(producto)) lblResultado.Text = "Producto agregado con éxito";
+                else lblResultado.Text = "El ID ingresado ya está en uso";
             }
         }
 
         private bool ValidarCampos()
         {
-            return (NombreTextBox.Text != "") && (PrecioTextBox.Text != "");
+            return (nombreTextBox.Text != "") && (precioTextBox.Text != "");
         }
 
         private void CargarOrigenes()
         {
-            OrigenDDList.DataSource = BusinessDataProvider.ProvideListaDeOrigenes();
-            OrigenDDList.DataBind();
+            origenDDList.DataSource = BusinessDataProvider.ProvideListaDeOrigenes();
+            origenDDList.DataBind();
         }
 
         private void CargarCategorias()
         {
-            CategoriaDDList.DataSource = BusinessDataProvider.ProvideListaDeCategorias();
-            CategoriaDDList.DataBind();
+            categoriaDDList.DataSource = BusinessDataProvider.ProvideListaDeCategorias();
+            categoriaDDList.DataBind();
         }
 
-        protected void BtnVolver_Click(object sender, EventArgs e)
+        protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Stock/StockMainPage.aspx");
         }
+
     }
 }

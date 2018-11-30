@@ -16,8 +16,9 @@ namespace AlmacenDeBebidasRP.Domain
         private String origen;
         private double precioArs;
         private Nullable<double> precioUss;
+        private int cantidad;
 
-        public Producto(int idProducto, String nombreProducto, String categoria, String origen, double precio)
+        public Producto(int idProducto, String nombreProducto, String categoria, String origen, double precio, int cantidad)
         {
             this.idProducto = idProducto;
             this.nombreProducto = nombreProducto;
@@ -33,6 +34,7 @@ namespace AlmacenDeBebidasRP.Domain
                 this.precioUss = precio;
                 this.precioArs = ServiceProvider.ProvideConversionDeDivisasService().ConvertirDolaresAPesos(precio);
             }
+            this.cantidad = cantidad;
         }
 
         internal int GetIDProducto()
@@ -63,6 +65,11 @@ namespace AlmacenDeBebidasRP.Domain
         internal Nullable<double> GetPrecioUss()
         {
             return this.precioUss;
+        }
+
+        internal int GetCantidad()
+        {
+            return this.cantidad;
         }
     }
 

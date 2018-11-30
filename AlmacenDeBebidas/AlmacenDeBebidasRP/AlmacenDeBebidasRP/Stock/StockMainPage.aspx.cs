@@ -78,6 +78,7 @@ namespace AlmacenDeBebidasRP.Stock
                 {
                     dato += "\tPrecio: " + p.GetPrecioUss() + " USS";
                 }
+                dato += "\tCantidad: " + p.GetCantidad();
                 datosDeProductos.Add(dato);
             }
             ProductosDDList.DataSource = datosDeProductos;
