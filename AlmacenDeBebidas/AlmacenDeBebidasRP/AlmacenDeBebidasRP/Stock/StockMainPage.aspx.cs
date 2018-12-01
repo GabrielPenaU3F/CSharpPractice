@@ -19,48 +19,21 @@ namespace AlmacenDeBebidasRP.Stock
                 this.CargarCategorias();
                 this.CargarOrigenes();
             }
-            this.DefinirEstadoDelBotonBuscar();
-            this.DefinirEstadoDeLosControlesDeBusqueda();
 
-        }
-
-        private void DefinirEstadoDeLosControlesDeBusqueda()
-        {
-            if (BuscarPorIdCB.Checked) BuscarPorIdTextBox.Enabled = true;
-            else BuscarPorIdTextBox.Enabled = false;
-
-            if (BuscarPorNombreCB.Checked) BuscarPorNombreTextBox.Enabled = true;
-            else BuscarPorNombreTextBox.Enabled = false;
-
-            if (BuscarPorCategoriaCB.Checked) CategoriasDDList.Enabled = true;
-            else CategoriasDDList.Enabled = false;
-
-            if (BuscarPorOrigenCB.Checked) OrigenesDDList.Enabled = true;
-            else OrigenesDDList.Enabled = false;
-        }
-
-        private void DefinirEstadoDelBotonBuscar()
-        {
-            if (CondicionDeBusquedaElegida()) btnBuscar.Enabled = true;
-            else btnBuscar.Enabled = false;
         }
 
         private void CargarOrigenes()
         {
-            OrigenesDDList.DataSource = BusinessDataProvider.ProvideListaDeOrigenes();
-            OrigenesDDList.DataBind();
+            origenesDDList.DataSource = BusinessDataProvider.ProvideListaDeOrigenes();
+            origenesDDList.DataBind();
         }
 
         private void CargarCategorias()
         {
-            CategoriasDDList.DataSource = BusinessDataProvider.ProvideListaDeCategorias();
-            CategoriasDDList.DataBind();
+            categoriasDDList.DataSource = BusinessDataProvider.ProvideListaDeCategorias();
+            categoriasDDList.DataBind();
         }
 
-        private bool CondicionDeBusquedaElegida()
-        {
-            return (BuscarPorIdCB.Checked || BuscarPorNombreCB.Checked || BuscarPorCategoriaCB.Checked || BuscarPorOrigenCB.Checked); 
-        }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -81,18 +54,18 @@ namespace AlmacenDeBebidasRP.Stock
                 dato += "\tCantidad: " + p.GetCantidad();
                 datosDeProductos.Add(dato);
             }
-            ProductosDDList.DataSource = datosDeProductos;
-            ProductosDDList.DataBind();
+            productosDDList.DataSource = datosDeProductos;
+            productosDDList.DataBind();
         }
 
         private BuscadorDeProductos GenerarBuscadorDeProductos()
         {
             BuscadorDeProductos buscadorDeProductos = new BuscadorDeProductos();
 
-            if (BuscarPorIdCB.Checked) buscadorDeProductos.AgregarCriterio(new AtributoDeProducto("ID_PRODUCTO", BuscarPorIdTextBox.Text, TipoColumna.INT));
-            if (BuscarPorNombreCB.Checked) buscadorDeProductos.AgregarCriterio(new AtributoDeProducto("NOMBRE", BuscarPorNombreTextBox.Text, TipoColumna.STRING));
-            if (BuscarPorCategoriaCB.Checked) buscadorDeProductos.AgregarCriterio(new AtributoDeProducto("CATEGORIA", CategoriasDDList.SelectedValue, TipoColumna.STRING));
-            if (BuscarPorOrigenCB.Checked) buscadorDeProductos.AgregarCriterio(new AtributoDeProducto("ORIGEN", OrigenesDDList.SelectedValue, TipoColumna.STRING));
+            if (buscarPorIdCB.Checked) buscadorDeProductos.AgregarCriterio(new AtributoDeProducto("ID_PRODUCTO", buscarPorIdTextBox.Text, TipoColumna.INT));
+            if (buscarPorNombreCB.Checked) buscadorDeProductos.AgregarCriterio(new AtributoDeProducto("NOMBRE", buscarPorNombreTextBox.Text, TipoColumna.STRING));
+            if (buscarPorCategoriaCB.Checked) buscadorDeProductos.AgregarCriterio(new AtributoDeProducto("CATEGORIA", categoriasDDList.SelectedValue, TipoColumna.STRING));
+            if (buscarPorOrigenCB.Checked) buscadorDeProductos.AgregarCriterio(new AtributoDeProducto("ORIGEN", origenesDDList.SelectedValue, TipoColumna.STRING));
 
             return buscadorDeProductos;
         }

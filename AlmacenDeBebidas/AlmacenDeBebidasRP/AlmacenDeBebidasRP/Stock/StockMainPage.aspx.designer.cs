@@ -67,84 +67,84 @@ namespace AlmacenDeBebidasRP.Stock {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control ProductosDDList.
+        /// Control productosDDList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ProductosDDList;
+        protected global::System.Web.UI.WebControls.DropDownList productosDDList;
         
         /// <summary>
-        /// Control BuscarPorIdCB.
+        /// Control buscarPorIdCB.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox BuscarPorIdCB;
+        protected global::System.Web.UI.WebControls.CheckBox buscarPorIdCB;
         
         /// <summary>
-        /// Control BuscarPorIdTextBox.
+        /// Control buscarPorIdTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BuscarPorIdTextBox;
+        protected global::System.Web.UI.WebControls.TextBox buscarPorIdTextBox;
         
         /// <summary>
-        /// Control BuscarPorNombreCB.
+        /// Control buscarPorNombreCB.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox BuscarPorNombreCB;
+        protected global::System.Web.UI.WebControls.CheckBox buscarPorNombreCB;
         
         /// <summary>
-        /// Control BuscarPorNombreTextBox.
+        /// Control buscarPorNombreTextBox.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BuscarPorNombreTextBox;
+        protected global::System.Web.UI.WebControls.TextBox buscarPorNombreTextBox;
         
         /// <summary>
-        /// Control BuscarPorCategoriaCB.
+        /// Control buscarPorCategoriaCB.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox BuscarPorCategoriaCB;
+        protected global::System.Web.UI.WebControls.CheckBox buscarPorCategoriaCB;
         
         /// <summary>
-        /// Control CategoriasDDList.
+        /// Control categoriasDDList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CategoriasDDList;
+        protected global::System.Web.UI.WebControls.DropDownList categoriasDDList;
         
         /// <summary>
-        /// Control BuscarPorOrigenCB.
+        /// Control buscarPorOrigenCB.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox BuscarPorOrigenCB;
+        protected global::System.Web.UI.WebControls.CheckBox buscarPorOrigenCB;
         
         /// <summary>
-        /// Control OrigenesDDList.
+        /// Control origenesDDList.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList OrigenesDDList;
+        protected global::System.Web.UI.WebControls.DropDownList origenesDDList;
     }
 }
