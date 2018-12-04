@@ -5,13 +5,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Agregar producto</title>
     <style type="text/css">
         #form1 {
             height: 301px;
             width: 457px;
         }
     </style>
+    <script language="javascript" type="text/javascript">
+
+        function validarCampos() {
+            if ((document.getElementById("idTextBox").value != "") && (document.getElementById("nombreTextBox").value != "") && (document.getElementById("precioTextBox").value != "") && (document.getElementById("cantidadTextBox").value != "")) return true;
+            else {
+                alert("Campo inválido o faltante");
+                return false;
+            }
+        }
+
+    </script>
 </head>
 <body style="height: 301px; width: 458px;">
     <form id="form1" runat="server">
@@ -42,7 +53,7 @@
         <br />
         &nbsp;<asp:Button ID="btnVolver" runat="server" OnClick="btnVolver_Click" Text="Volver a Stock" />
         &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" />
+        <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" OnClientClick="return validarCampos();" Text="Aceptar" />
         &nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblResultado" runat="server"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </form>

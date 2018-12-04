@@ -33,22 +33,10 @@ namespace AlmacenDeBebidasRP.Stock
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (this.ValidarCampos() == false)
-            {
-                lblResultado.Text = "Campo invalido o faltante";
-            }
-            else
-            {
-                Producto producto = new Producto(Int32.Parse(idTextBox.Text), nombreTextBox.Text, categoriaDDList.SelectedValue, origenDDList.SelectedValue, Double.Parse(precioTextBox.Text), Int32.Parse(cantidadTextBox.Text));
-                this.dao = new ProductoDAO();
-                if (dao.AgregarProducto(producto)) lblResultado.Text = "Producto agregado con éxito";
-                else lblResultado.Text = "El ID ingresado ya está en uso";
-            }
-        }
-
-        private bool ValidarCampos()
-        {
-            return (nombreTextBox.Text != "") && (precioTextBox.Text != "");
+            Producto producto = new Producto(Int32.Parse(idTextBox.Text), nombreTextBox.Text, categoriaDDList.SelectedValue, origenDDList.SelectedValue, Double.Parse(precioTextBox.Text), Int32.Parse(cantidadTextBox.Text));
+            this.dao = new ProductoDAO();
+            if (dao.AgregarProducto(producto)) lblResultado.Text = "Producto agregado con éxito";
+            else lblResultado.Text = "El ID ingresado ya está en uso";
         }
 
         private void CargarOrigenes()
